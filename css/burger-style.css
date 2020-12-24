@@ -1,0 +1,36 @@
+*{
+    margin: 0 0;
+}
+h2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#check {
+    border-radius: 25px;
+    margin: 10px;
+    background-color: darkseagreen;
+    width: 120px;
+    text-align:center;
+}
+.container {
+    max-width: 800px;
+    margin: auto ;
+}
+.title {
+    text-align: center;
+}
+.burgerform {
+    margin-top: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+.result {
+    padding: 0 0 10px 15px;
+    display: flex;
+    flex-direction: column;
+}
