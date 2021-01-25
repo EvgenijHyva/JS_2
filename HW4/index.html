@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular expressions HW4</title>
+    <style>
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .input {
+            padding: 5px 0;
+            margin: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .valid {
+            border: 1px solid green;
+            background-color: darkseagreen;
+        }
+
+        .invalid {
+            border: 1px solid red;
+            background-color: rosybrown;
+        }
+
+        form {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            background-color: darkkhaki;
+            border-radius: 15px;
+        }
+
+        button {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="first-second-task" style="max-width: 500px;background-color: whitesmoke;">
+        <p class="text">
+            One: 'Hi Mary.' Two: 'Oh, hi.'
+            One: 'How are you doing?'
+            Two: 'I'm doing alright. How about you?'
+            One: 'Not too bad. The weather is great isn't it?'
+            Two: 'Yes. It's absolutely beautiful today.'
+            One: 'I wish it was like this more frequently.'
+            Two: 'Me too.'
+            One: 'So where are you going now?'
+            Two: 'I'm going to meet a friend of mine at the department store.'
+            One: 'Going to do a little shopping?'
+            Two: 'Yeah, I have to buy some presents for my parents.'
+            One: 'What's the occasion?'
+            Two: 'It's their anniversary.'
+            One: 'That's great. Well, you better get going. You don't want to be late.'
+            Two: 'I'll see you next time.'
+            One: 'Sure. Bye.'
+        </p>
+        <button id="first-change" style="border-radius:10px">задание 1: замена ковычек </button>
+        <button id="return" style="border-radius:10px; display: none; background-color:lightgreen;">вернуть как
+            было</button>
+        <button id="second-change" style="border-radius:10px">задание 2: апостроф </button>
+        <script src="valid_regexp.js"></script>
+    </div>
+
+    <form action="#" class="third-task">
+        <p class="form" style="text-align: center;">Форма заполнения</p>
+        <input class="input" placeholder="Name" type="text" name="name">
+        <input class="input" placeholder="Phone" type="tel" name="phone">
+        <input class="input" placeholder="Email" type="email" name="email">
+        <textarea class="input" placeholder="Some text" type="text" name="text" cols="30" rows="10"></textarea>
+        <div class="buttons" style="display: flex;">
+            <button style="flex-grow: 1; margin: 10px 5px 5px 10px; padding: 5px;" type="submit">отправить
+                форму</button>
+            <button style="flex-grow: 1; margin: 10px 10px 5px 5px; padding: 5px;" type="reset">очистить форму</button>
+        </div>
+        <script src="form_regexp.js"></script>
+    </form>
+
+
+
+</body>
+
+</html>
