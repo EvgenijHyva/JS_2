@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">E-shop</div>
+            <div class="cart">
+                <search></search>
+
+                <button class="btn-cart" type="button" @click="showBasket=!showBasket">Корзина</button>
+
+                <basket :basket="basket" :img="imgBasket" :show="showBasket" @remove='removeProduct'>
+                </basket>
+
+            </div>
+        </header>
+
+        <products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
+
+    </div>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/search_component.js"></script>
+    <script src="js/ProductComponent.js"></script>
+    <script src="js/CartComponent.js"></script>
+</body>
+
+</html>
+
+
+<!-- разбитие верстки на компоненты: блок кода для search_component
+    
+    <form action="#" class="search-form">
+                    <input type="text" v-model="userSearch" @input="filter()" class="search-field">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>  -->
+
+
+<!-- разбитие верстки на компоненты: блок кода для CartComponent.js:
+
+                <div v-if="showBasket" class="cart-block">
+                    <p v-if="!basket.length">Корзина пуста</p>
+                    <div class="cart-item" v-for="item of basket" :key="item.id_product">
+                        <div class="product-bio">
+                            <img :src="imgBasket" alt="product pick">
+                            <div class="product-desc">
+                                <p class="product-title basket-info"> {{item.product_name}} </p>
+                                <p class="product-quantity basket-info"> {{item.quantity}}/шт.</p>
+                                <p class="product-single-price basket-info"> {{item.price}} шт. </p>
+                            </div>
+                            <div class="right-block">
+                                <p class="product-price"> Цена: {{item.quantity*item.price}} </p>
+                                <button class="del-btn" @click="removeProduct(item)">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p v-if="basket.length" class="total-price"> Цена товаров: {{basket.length ? calcSum() : "пусто" }}
+                        <button>next</button>
+                    </p>
+                </div>
+                -->
+
+
+<!-- разбитие верстки на компоненты: блок кода для ProductComponent.js
+            
+        <main>
+            <div class="products">
+                <div class="product-item" v-for="product of filtered" :key="product.id_product">
+                    <img :src="imgCatalog" alt="Some img">
+                    <div class="desc">
+                        <h3>{{product.product_name}}</h3>
+                        <p>{{product.price}} $</p>
+                        <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+     -->
