@@ -18,12 +18,14 @@
                 <button class="btn-cart" type="button" @click="showBasket=!showBasket">Корзина</button>
 
                 <basket :basket="basket" :img="imgBasket" :show="showBasket" @remove='removeProduct'>
+                    <connection-error :error="isBasketError"></connection-error>
                 </basket>
 
             </div>
         </header>
-
-        <products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
+        <products :products="filtered" :img="imgCatalog" @add-product="addProduct">
+            <connection-error :error="isError"></connection-error>
+        </products>
 
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
@@ -34,6 +36,7 @@
     <script src="js/search_component.js"></script>
     <script src="js/ProductComponent.js"></script>
     <script src="js/CartComponent.js"></script>
+    <script src="js/error.js"></script>
 </body>
 
 </html>

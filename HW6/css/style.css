@@ -182,3 +182,12 @@ img {
 .basket-info {
     padding-left: 7px;
 }
+
+.error {
+    color: red;
+    text-align: center;
+    background-color: black;
+    letter-spacing: 0.2em;    
+    border-style: dashed;
+    margin-bottom: 10px;
+}

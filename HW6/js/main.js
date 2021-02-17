@@ -12,6 +12,8 @@ const app = new Vue({
         imgBasket: 'https://placehold.it/50x80', // картинка корзины
         filtered: [], // отображение поисковика
         localGetProducts: `getProducts.json`,
+        isError: false, // по умолчанию соеденение с сервером ошибок нет
+        isBasketError: false,
     },
     methods: {
         getJson(url) {
@@ -66,7 +68,7 @@ const app = new Vue({
                             this.basket.push(product);
                         }
                     } else {
-                        alert('Error');
+                        this.isBasketError = true;
                     }
                 })
         }
@@ -80,19 +82,30 @@ const app = new Vue({
                     this.products.push(el)
                     this.filtered.push(el)
                 }
-            });
+            })
+            .catch(error => {
+                console.log("произошла ошибка: ", error)
+                this.isError = true;
+            })
         this.getJson(`${API + this.basketJson}`)
             .then(data => {
                 for (let el of data.contents) { // массив товаров корзины хранятся в contents
                     this.basket.push(el)
                 }
-            });
+            })
+            .catch(error => {
+                console.log("произошла ошибка при проверке связи с корзиной: ", error);
+                this.isBasketError = true;
+            })
         this.getJson(this.localGetProducts)
             .then(data => {
                 for (let el of data) {
                     this.filtered.push(el)
                 }
             })
-            .catch(error => console.log("произошла ошибка: ", error))
+            .catch(error => {
+                console.log("произошла ошибка: ", error)
+                //this.isError = true;
+            })
     }
 })

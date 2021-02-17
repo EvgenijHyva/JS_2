@@ -2,6 +2,7 @@ Vue.component('products', {
     props: ['products', 'img'],
     template: `
             <main>
+               <slot> </slot>
                <div class="products">
                <product v-for="product of products" :key="product.id_product" :img="img" :product="product"> </product>
                </div>

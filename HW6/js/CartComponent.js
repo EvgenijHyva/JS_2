@@ -2,6 +2,7 @@ Vue.component('basket', {
     props: ["basket", "img", "show"],
     template: `
         <div class="cart-block" v-if="show">
+        <slot></slot>
         <p v-if="!basket.length">Корзина пуста</p>
             <cart-item v-for="item of basket" :key="item.id_product" :img="img" :item="item" :basket="basket" >
             </cart-item>
